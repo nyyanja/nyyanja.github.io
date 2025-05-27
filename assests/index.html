@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ny Anja Manana</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="/assests/css/styles.css">
+    <link rel="icon" href="/assests/images/portolio.png" type="image/jpg">
+
+     <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'glow': 'glow 2s ease-in-out infinite alternate',
+                        'slide-up': 'slideUp 0.8s ease-out',
+                        'fade-in': 'fadeIn 1s ease-out',
+                        'bounce-slow': 'bounce 3s infinite',
+                        'pulse-slow': 'pulse 3s infinite'
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="text-white relative">
+    <!-- Particles Background -->
+    <div class="particles fixed inset-0 z-0" id="particles"></div>
+    
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 nav-blur border-b border-pink-500/20">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="text-2xl font-bold gradient-text">Ny Anja</div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="#accueil" class="nav-link hover:text-pink-400 transition-all duration-300">Accueil</a>
+                    <a href="#about" class="nav-link hover:text-pink-400 transition-all duration-300">À Propos</a>
+                    <a href="#parcours" class="nav-link hover:text-pink-400 transition-all duration-300">Parcours</a>
+                    <a href="#gallery" class="nav-link hover:text-pink-400 transition-all duration-300">Galerie</a>
+                    <a href="#projets" class="nav-link hover:text-pink-400 transition-all duration-300">Projets</a>
+                    <a href="#contact" class="nav-link hover:text-pink-400 transition-all duration-300">Contact</a>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden text-pink-400 text-2xl" onclick="toggleMobileMenu()">
+                    <i class="fas fa-bars" id="menu-icon"></i>
+                </button>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="nav-mobile md:hidden fixed top-0 left-0 w-full h-screen glass-morphism">
+                <div class="flex flex-col items-center justify-center h-full space-y-8 text-2xl">
+                    <a href="#accueil" class="nav-link hover:text-pink-400 transition-all duration-300" onclick="toggleMobileMenu()">Accueil</a>
+                    <a href="#about" class="nav-link hover:text-pink-400 transition-all duration-300" onclick="toggleMobileMenu()">À Propos</a>
+                    <a href="#parcours" class="nav-link hover:text-pink-400 transition-all duration-300" onclick="toggleMobileMenu()">Parcours</a>
+                    <a href="#gallery" class="nav-link hover:text-pink-400 transition-all duration-300" onclick="toggleMobileMenu()">Galerie</a>
+                    <a href="#projets" class="nav-link hover:text-pink-400 transition-all duration-300" onclick="toggleMobileMenu()">Projets</a>
+                    <a href="#contact" class="nav-link hover:text-pink-400 transition-all duration-300" onclick="toggleMobileMenu()">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Section Accueil -->
+    <section id="accueil" class="min-h-screen flex items-center justify-center relative hero-gradient">
+        <div class="container mx-auto px-6 text-center relative z-10">
+            <div class="animate-fade-in">
+                <!-- Avatar avec animation -->
+                <div class="w-40 h-40 mx-auto mb-8 relative">
+                    <div class="w-full h-full rounded-full glass-morphism flex items-center justify-center animate-float pink-glow">
+                        <img src="/assests/images/portolio.png" alt="logo" srcset="" class="rounded-full w-36 h-36 object-cover shadow-lg">
+                    </div>
+                    <div class="absolute -top-2 -right-2 w-8 h-8 bg-pink-500 rounded-full animate-pulse"></div>
+                    <div class="absolute -bottom-2 -left-2 w-6 h-6 bg-cyan-400 rounded-full animate-pulse-slow"></div>
+                </div>
+                
+                <h1 class="text-5xl md:text-7xl font-bold mb-6">
+                    <span class="gradient-text block mb-2">Jeune Femme</span>
+                    <span class="text-white">Passionnée</span>
+                </h1>
+                
+                <p class="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto">
+                    <span class="text-pink-400">Photographe</span> • 
+                    <span class="text-purple-400">Designer</span> • 
+                    <span class="text-blue-400">Developpeur</span> • 
+                    <span class="text-red-400">Passionnée d'Automobiles</span> • 
+                    <span class="text-green-400">Éco-responsable</span>
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <button onclick="scrollToSection('about')" class="bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 px-8 py-4 rounded-full font-semibold transition-all duration-300 hover:scale-105 pink-glow">
+                        <i class="fas fa-heart mr-2"></i>Découvrir mon univers
+                    </button>
+                    <button onclick="scrollToSection('contact')" class="border-2 border-cyan-400 text-cyan-400 hover:bg-cyan-400 hover:text-black px-8 py-4 rounded-full font-semibold transition-all duration-300 hover:scale-105 ice-glow">
+                        <i class="fas fa-envelope mr-2"></i>Me contacter
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce-slow">
+            <i class="fas fa-chevron-down text-2xl text-pink-400"></i>
+        </div>
+    </section>
+
+    <!-- Section À Propos -->
+    <section id="about" class="py-20 px-6 relative">
+        <div class="section-divider mb-16"></div>
+        <div class="container mx-auto">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 gradient-text animate-on-scroll">À Propos de Moi</h2>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="animate-on-scroll">
+                    <div class="glass-morphism p-8 rounded-3xl card-hover">
+                        <h3 class="text-2xl font-bold mb-6 text-pink-400">
+                            <i class="fas fa-sparkles mr-3"></i>Qui suis-je ?
+                        </h3>
+                        <p class="text-gray-300 mb-6 leading-relaxed">
+                            Créatrice passionnée naviguant entre l'art visuel et la technologie, je trouve ma joie dans 
+                            la capture de moments uniques à travers la photographie et la création de designs qui racontent 
+                            des histoires authentiques.
+                        </p>
+                        <p class="text-gray-300 mb-6 leading-relaxed">
+                            Mon cœur bat pour l'industrie automobile - chaque courbe, chaque détail mécanique représente 
+                            pour moi une œuvre d'art en mouvement.
+                        </p>
+                        <p class="text-gray-300 mb-6 leading-relaxed">
+                            En tant que développeuse, je m'efforce de créer des expériences numériques intuitives et 
+                            esthétiques, alliant fonctionnalité et beauté visuelle.
+                        </p>
+                        <p class="text-gray-300 mb-8 leading-relaxed">
+                            Engagée pour notre planète, je participe activement à des projets de reboisement car je crois 
+                            que la créativité doit s'accompagner d'une conscience écologique forte.
+                        </p>
+                        
+                        <!-- Tags de compétences -->
+                        <div class="flex flex-wrap gap-3">
+                            <span class="bg-gradient-to-r from-pink-500 to-pink-600 px-4 py-2 rounded-full text-sm font-medium">
+                                <i class="fas fa-camera mr-2"></i>Photographie
+                            </span>
+                            <span class="bg-gradient-to-r from-purple-500 to-purple-600 px-4 py-2 rounded-full text-sm font-medium">
+                                <i class="fas fa-palette mr-2"></i>Design Graphique
+                            </span>
+                                <span class="bg-gradient-to-r from-green-500 to-green-600 px-4 py-2 rounded-full text-sm font-medium">
+                                <i class="fas fa-laptop-code mr-2"></i>Developpeur
+                            </span>
+                            <span class="bg-gradient-to-r from-red-500 to-red-600 px-4 py-2 rounded-full text-sm font-medium">
+                                <i class="fas fa-car mr-2"></i>Automobile
+                            </span>
+                            <span class="bg-gradient-to-r from-green-500 to-green-600 px-4 py-2 rounded-full text-sm font-medium">
+                                <i class="fas fa-leaf mr-2"></i>Écologie
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Cartes de passion -->
+                <div class="animate-on-scroll">
+                    <div class="grid grid-cols-2 gap-6">
+                        <div class="glass-morphism p-6 rounded-3xl text-center card-hover group">
+                            <div class="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-pink-500 to-pink-600 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                                <i class="fas fa-camera-retro text-2xl text-white"></i>
+                            </div>
+                            <h4 class="font-bold mb-2 text-pink-400">Photographie</h4>
+                            <p class="text-sm text-gray-400">Capturer l'émotion dans chaque cliché</p>
+                        </div>
+                        
+                        <div class="glass-morphism p-6 rounded-3xl text-center card-hover group">
+                            <div class="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                                <i class="fas fa-paint-brush text-2xl text-white"></i>
+                            </div>
+                            <h4 class="font-bold mb-2 text-purple-400">Design</h4>
+                            <p class="text-sm text-gray-400">Créer des visuels qui marquent</p>
+                        </div>
+                        <div class="glass-morphism p-6 rounded-3xl text-center card-hover group">
+                            <div class="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                                <i class="fas fa-laptop-code text-2xl text-white"></i>
+                            </div>
+                            <h4 class="font-bold mb-2 text-purple-400">Developpeur</h4>
+                            <p class="text-sm text-gray-400">Concevoir un site attriante</p>
+                        </div>
+                        
+                        <div class="glass-morphism p-6 rounded-3xl text-center card-hover group">
+                            <div class="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-red-500 to-red-600 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                                <i class="fas fa-car-side text-2xl text-white"></i>
+                            </div>
+                            <h4 class="font-bold mb-2 text-red-400">Automobiles</h4>
+                            <p class="text-sm text-gray-400">La beauté mécanique incarnée</p>
+                        </div>
+                        
+                        <div class="glass-morphism p-6 rounded-3xl text-center card-hover group">
+                            <div class="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-green-500 to-green-600 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                                <i class="fas fa-seedling text-2xl text-white"></i>
+                            </div>
+                            <h4 class="font-bold mb-2 text-green-400">Écologie</h4>
+                            <p class="text-sm text-gray-400">Protéger notre belle planète</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Parcours -->
+    <section id="parcours" class="py-20 px-6 relative">
+        <div class="section-divider mb-16"></div>
+        <div class="container mx-auto">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 gradient-text animate-on-scroll">Mon Parcours</h2>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Parcours Professionnel -->
+                  <!-- Parcours Professionnel -->
+    <div class="animate-on-scroll">
+        <h3 class="text-2xl font-bold mb-8 text-pink-400 flex items-center">
+            <i class="fas fa-briefcase mr-3"></i>Expérience Professionnelle
+        </h3>
+        
+        <div class="relative">
+            <div class="absolute left-4 top-0 w-0.5 h-full timeline-line"></div>
+            
+            <div class="relative pl-12 pb-8">
+                <div class="absolute left-2 w-4 h-4 bg-pink-500 rounded-full -translate-x-1/2"></div>
+                <div class="glass-morphism p-6 rounded-2xl">
+                    <span class="text-cyan-400 text-sm font-medium">2024 - Octobre</span>
+                    <h4 class="text-xl font-bold text-pink-300 mt-1">Stage d’observation – WIDOOIT</h4>
+                    <p class="text-gray-400 mt-2">Découverte d’une ESN, gestion de projet digital, utilisation d’Odoo (ERP), missions en assistance informatique et gestion de biens. Renforcement de mes compétences techniques et compréhension du fonctionnement d’une entreprise tech.</p>
+                </div>
+            </div>
+            
+            <div class="relative pl-12 pb-8">
+                <div class="absolute left-2 w-4 h-4 bg-purple-500 rounded-full -translate-x-1/2"></div>
+                <div class="glass-morphism p-6 rounded-2xl">
+                    <span class="text-cyan-400 text-sm font-medium">2023</span>
+                    <h4 class="text-xl font-bold text-purple-300 mt-1">Photographe junior – Célébration à l’église</h4>
+                    <p class="text-gray-400 mt-2">Captation des moments forts d’un événement religieux : émotions, prières, sourires. Développement de mon regard artistique dans un cadre respectueux et spirituel.</p>
+                </div>
+            </div>
+            
+            <div class="relative pl-12">
+                <div class="absolute left-2 w-4 h-4 bg-cyan-500 rounded-full -translate-x-1/2"></div>
+                <div class="glass-morphism p-6 rounded-2xl">
+                    <span class="text-cyan-400 text-sm font-medium">2023</span>
+                    <h4 class="text-xl font-bold text-cyan-300 mt-1">Vendeuse en pâtisserie – Boutique à Iavoloha</h4>
+                    <p class="text-gray-400 mt-2">Accueil, conseil et vente en boutique. Communication efficace pour une expérience client agréable. Compétences renforcées en relation client et organisation.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+                
+                <!-- Parcours Étudiant -->
+                <div class="animate-on-scroll">
+                    <h3 class="text-2xl font-bold mb-8 text-cyan-400 flex items-center">
+                        <i class="fas fa-graduation-cap mr-3"></i>Formation
+                    </h3>
+                    
+                    <div class="relative">
+                        <div class="absolute left-4 top-0 w-0.5 h-full timeline-line"></div>
+                        
+                        <div class="relative pl-12 pb-8">
+                            <div class="absolute left-2 w-4 h-4 bg-green-500 rounded-full -translate-x-1/2"></div>
+                            <div class="glass-morphism p-6 rounded-2xl">
+                                <span class="text-cyan-400 text-sm font-medium">2025</span>
+                                <h4 class="text-xl font-bold text-green-300 mt-1">🎓 Licence 1 – Informatique</h4>
+                                <p class="text-gray-400 mt-2">Première année de licence orientée vers les bases de l’informatique : algorithmique, programmation, bases de données, mathématiques. Cette formation m’a permis d’acquérir des compétences techniques solides et de développer ma logique ainsi que mon esprit d’analyse</p>
+                            </div>
+                        </div>
+                        
+                        <div class="relative pl-12 pb-8">
+                            <div class="absolute left-2 w-4 h-4 bg-yellow-500 rounded-full -translate-x-1/2"></div>
+                            <div class="glass-morphism p-6 rounded-2xl">
+                                <span class="text-cyan-400 text-sm font-medium">2024</span>
+                                <h4 class="text-xl font-bold text-yellow-300 mt-1">🌱 Année préparatoire – Passerelles Numériques Madagascar</h4>
+                                <p class="text-gray-400 mt-2">Année de formation intensive axée sur les bases de l’informatique, l’anglais, les soft skills et la vie en communauté. Cette expérience a renforcé ma discipline et de me préparer aux études supérieures en informatique.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="relative pl-12">
+                            <div class="absolute left-2 w-4 h-4 bg-blue-500 rounded-full -translate-x-1/2"></div>
+                            <div class="glass-morphism p-6 rounded-2xl">
+                                <span class="text-cyan-400 text-sm font-medium">2022</span>
+                                <h4 class="text-xl font-bold text-blue-300 mt-1">Baccalauréat Scientifique</h4>
+                                <p class="text-gray-400 mt-2">J’ai obtenu mon baccalauréat scientifique, ce qui m’a permis d’acquérir des bases solides en mathématiques, physique et sciences.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Galerie -->
+     <section id= "gallery" class="py-10 px-4 max-w-6xl mx-auto animate-on-scroll">
+    <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 gradient-text animate-on-scroll">Ma Galerie</h2>
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      <div class="relative group">
+        <img src="/assests/images/project/projet3.jpg" class="rounded-xl group-hover:brightness-75 transition duration-300">
+        <p class="absolute bottom-4 left-4 text-white text-sm bg-black/50 px-2 py-1 rounded">Parlé en publique</p>
+      </div>
+      <div class="relative group">
+        <img src="/assests/images/gallery/reboisement2.JPG" class="rounded-xl group-hover:brightness-75">
+        <p class="absolute bottom-4 left-4 text-white text-sm bg-black/50 px-2 py-1 rounded">Reboisement</p>
+      </div>
+      <div class="relative group">
+        <img src="/assests/images/gallery/sortie2.jpg" class="rounded-xl group-hover:brightness-75">
+        <p class="absolute bottom-4 left-4 text-white text-sm bg-black/50 px-2 py-1 rounded">Certificat</p>
+      </div>
+      <div class="relative group">
+        <img src="/assests/images/project/projet2.jpg" class="rounded-xl group-hover:brightness-75">
+        <p class="absolute bottom-4 left-4 text-white text-sm bg-black/50 px-2 py-1 rounded">Robotique</p>
+      </div>
+      <div class="relative group">
+        <img src="/assests/images/gallery/soutenance.jpg" class="rounded-xl group-hover:brightness-75">
+        <p class="absolute bottom-4 left-4 text-white text-sm bg-black/50 px-2 py-1 rounded">Rapport de stage</p>
+      </div>
+      <div class="relative group">
+        <img src="/assests/images/project/projet1.jpg" class="rounded-xl group-hover:brightness-75">
+        <p class="absolute bottom-4 left-4 text-white text-sm bg-black/50 px-2 py-1 rounded">Concéption Figma</p>
+      </div>
+      <div class="relative group">
+        <img src="/assests/images/project/projet5.jpg" class="rounded-xl group-hover:brightness-75">
+        <p class="absolute bottom-4 left-4 text-white text-sm bg-black/50 px-2 py-1 rounded">Discours</p>
+      </div>
+      <div class="relative group">
+        <img src="/assests/images/project/projet4.jpg" class="rounded-xl group-hover:brightness-75">
+        <p class="absolute bottom-4 left-4 text-white text-sm bg-black/50 px-2 py-1 rounded">Présenation</p>
+      </div>
+    </div>
+  </section>
+
+    <!-- Section Projets -->
+    <section id="projets" class="py-20 px-6 relative">
+        <div class="section-divider mb-16"></div>
+        <div class="container mx-auto">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 gradient-text animate-on-scroll">Mes Projets</h2>
+            
+            <!-- Projets Réalisés -->
+            <div class="mb-16 animate-on-scroll">
+                <h3 class="text-3xl font-bold mb-8 text-pink-400 flex items-center justify-center">
+                    <i class="fas fa-check-circle mr-3 text-green-400"></i>Projets Réalisés
+                </h3>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="glass-morphism p-8 rounded-3xl card-hover">
+                        <div class="flex items-center mb-6">
+                            <div class="w-16 h-16 bg-gradient-to-br from-pink-500 to-rose-600 rounded-2xl flex items-center justify-center mr-4">
+                                <i class="fas fa-tasks text-white text-2xl"></i>
+                            </div>
+                            <div>
+                                <span class="text-xs bg-green-500/20 text-green-400 px-3 py-1 rounded-full border border-green-500/30">
+                                    <i class="fas fa-check mr-1"></i>Terminé
+                                </span>
+                            </div>
+                        </div>
+                        <h4 class="text-xl font-bold mb-3 text-pink-300">Chef de projet journée culturelle</h4>
+                        <p class="text-gray-400 mb-4 text-sm leading-relaxed">
+                            En tant que chef de projet culturel, j’ai organisé une journée culturelle en coordonnant les activités et les équipes.
+                             J’ai veillé au respect des délais et du budget pour assurer le succès de l’événement.
+                        </p>
+                        <div class="flex items-center text-xs text-gray-500">
+                            <i class="fas fa-calendar mr-2"></i>Mai 2024
+                            <span class="mx-2">•</span>
+                            <i class="fas fa-map-pin mr-2"></i>Passerelles Numériques Madagascar
+                        </div>
+                    </div>
+                    
+                    <div class="glass-morphism p-8 rounded-3xl card-hover">
+                        <div class="flex items-center mb-6">
+                            <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-indigo-600 rounded-2xl flex items-center justify-center mr-4">
+                                <i class="fas fa-trophy text-white text-2xl"></i>
+                            </div>
+                            <div>
+                                <span class="text-xs bg-green-500/20 text-green-400 px-3 py-1 rounded-full border border-green-500/30">
+                                    <i class="fas fa-check mr-1"></i>Terminé
+                                </span>
+                            </div>
+                        </div>
+                        <h4 class="text-xl font-bold mb-3 text-purple-300">Olympiades Numérique</h4>
+                        <p class="text-gray-400 mb-4 text-sm leading-relaxed">
+                            En équipe, nous avons créé une application de gestion de bibliothèque pour l’Olympiade Numérique. 
+                             Nous avons remporté la compétition grâce à notre créativité et notre organisation.
+                        </p>
+                        <div class="flex items-center text-xs text-gray-500">
+                            <i class="fas fa-calendar mr-2"></i>Septembre 2024
+                            <span class="mx-2">•</span>
+                            <i class="fas fa-map-pin mr-2"></i>Passerelles Numériques Madagascar
+                        </div>
+                    </div>
+                    
+                    <div class="glass-morphism p-8 rounded-3xl card-hover">
+                        <div class="flex items-center mb-6">
+                            <div class="w-16 h-16 bg-gradient-to-br from-green-500 to-teal-600 rounded-2xl flex items-center justify-center mr-4">
+                                <i class="fas fa-tree text-white text-2xl"></i>
+                            </div>
+                            <div>
+                                <span class="text-xs bg-green-500/20 text-green-400 px-3 py-1 rounded-full border border-green-500/30">
+                                    <i class="fas fa-check mr-1"></i>Terminé
+                                </span>
+                            </div>
+                        </div>
+                        <h4 class="text-xl font-bold mb-3 text-green-300">Reboisement "Bondy"</h4>
+                        <p class="text-gray-400 mb-4 text-sm leading-relaxed">
+                            Plantation : 700 arbres plantés avec 150 jeunes de Passerelles Numériques Madagascar. 
+                        </p>
+                        <div class="flex items-center text-xs text-gray-500">
+                            <i class="fas fa-calendar mr-2"></i>Fevrier 2025
+                            <span class="mx-2">•</span>
+                            <i class="fas fa-users mr-2"></i>150 jeunes participants
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Projets À Venir -->
+            <div class="animate-on-scroll">
+                <h3 class="text-3xl font-bold mb-8 text-cyan-400 flex items-center justify-center">
+                    <i class="fas fa-clock mr-3 text-yellow-400"></i>Projets À Venir
+                </h3>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="glass-morphism p-8 rounded-3xl card-hover border-l-4 border-yellow-500">
+                        <div class="flex items-center mb-6">
+                            <div class="w-16 h-16 bg-gradient-to-br from-yellow-500 to-orange-600 rounded-2xl flex items-center justify-center mr-4">
+                                <i class="fas fa-tools text-white text-2xl"></i>
+                            </div>
+                            <div>
+                                <span class="text-xs bg-yellow-500/20 text-yellow-400 px-3 py-1 rounded-full border border-yellow-500/30">
+                                    <i class="fas fa-hourglass-half mr-1"></i>En cours
+                                </span>
+                            </div>
+                        </div>
+                        <h4 class="text-xl font-bold mb-3 text-yellow-300">Automatisation des paperasses administrative</h4>
+                        <p class="text-gray-400 mb-4 text-sm leading-relaxed">
+                            Développement d'un système de gestion des documents administratifs pour simplifier les processus internes. 
+                            Objectif : réduire le temps de traitement et améliorer l'efficacité.
+                        </p>
+                        <div class="flex items-center text-xs text-gray-500">
+                            <i class="fas fa-calendar mr-2"></i>Cette année
+                            <span class="mx-2">•</span>
+                            <i class="fas fa-percent mr-2"></i>20% terminé
+                        </div>
+                    </div>
+                    
+                    <div class="glass-morphism p-8 rounded-3xl card-hover border-l-4 border-blue-500">
+                        <div class="flex items-center mb-6">
+                            <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center mr-4">
+                                <i class="fas fa-globe text-white text-2xl"></i>
+                            </div>
+                            <div>
+                                <span class="text-xs bg-blue-500/20 text-blue-400 px-3 py-1 rounded-full border border-blue-500/30">
+                                    <i class="fas fa-calendar-plus mr-1"></i>À venir
+                                </span>
+                            </div>
+                        </div>
+                        <h4 class="text-xl font-bold mb-3 text-blue-300">Plateforme "Fan Auto"</h4>
+                        <p class="text-gray-400 mb-4 text-sm leading-relaxed">
+                            Développement d'une plateforme web connectant les passionnés d'automobiles.
+                            Partage d'expériences, conseils techniques et organisation d'événements automobiles.
+                        </p>
+                        <div class="flex items-center text-xs text-gray-500">
+                            <i class="fas fa-calendar mr-2"></i>À venir
+                            <span class="mx-2">•</span>
+                            <i class="fas fa-car mr-2"></i>Voiture
+                        </div>
+                    </div>
+                    
+                    <div class="glass-morphism p-8 rounded-3xl card-hover border-l-4 border-green-500">
+                        <div class="flex items-center mb-6">
+                            <div class="w-16 h-16 bg-gradient-to-br from-green-500 to-teal-600 rounded-2xl flex items-center justify-center mr-4">
+                                <i class="fas fa-mountain text-white text-2xl"></i>
+                            </div>
+                            <div>
+                                <span class="text-xs bg-green-500/20 text-green-400 px-3 py-1 rounded-full border border-green-500/30">
+                                    <i class="fas fa-seedling mr-1"></i>En préparation
+                                </span>
+                            </div>
+                        </div>
+                        <h4 class="text-xl font-bold mb-3 text-green-300">Expédition "Nature Sauvage"</h4>
+                        <p class="text-gray-400 mb-4 text-sm leading-relaxed">
+                            Voyage photographique dans les parcs nationaux pour documenter la biodiversité. 
+                            Sensibilisation à la protection de nos écosystèmes fragiles.
+                        </p>
+                        <div class="flex items-center text-xs text-gray-500">
+                            <i class="fas fa-calendar mr-2"></i>Prévu pour bientôt
+                            <span class="mx-2">•</span>
+                            <i class="fas fa-camera mr-2"></i>Documentaire
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Contact -->
+    <section id="contact" class="py-20 px-6 relative">
+        <div class="section-divider mb-16"></div>
+        <div class="container mx-auto">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-8 gradient-text animate-on-scroll">Restons Connectées</h2>
+            <p class="text-center text-gray-300 mb-16 max-w-2xl mx-auto animate-on-scroll">
+                Vous avez un projet créatif en tête ? Une collaboration à proposer ? 
+                J'adorerais découvrir votre univers et créer quelque chose d'unique ensemble ! ✨
+            </p>
+            
+            <!-- Réseaux Sociaux -->
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 mb-16 animate-on-scroll">
+                <a href="mailto:nyanja.ramahavatra@gmail.com" class="glass-morphism p-6 rounded-3xl text-center card-hover group">
+                    <div class="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-pink-500 to-rose-600 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-envelope text-white text-2xl"></i>
+                    </div>
+                    <h4 class="font-bold text-pink-400 mb-1">Email</h4>
+                    <p class="text-xs text-gray-500">nyanja.ramahavatra@gmail.com</p>
+                </a>
+                
+                <a href="https://www.linkedin.com/in/nyanja-ramahavatraharisoa-54631b2b9/" target="_blank" class="glass-morphism p-6 rounded-3xl text-center card-hover group">
+                    <div class="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-blue-600 to-blue-700 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                        <i class="fab fa-linkedin text-white text-2xl"></i>
+                    </div>
+                    <h4 class="font-bold text-blue-400 mb-1">LinkedIn</h4>
+                    <p class="text-xs text-gray-500">Ny Anja Ramahavatraharisoa</p>
+                </a>
+                
+                <a href="https://github.com/nyyanja" target="_blank" class="glass-morphism p-6 rounded-3xl text-center card-hover group">
+                    <div class="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-green-500 to-black-600 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                        <i class="fab fa-github text-white text-2xl"></i>
+                    </div>
+                    <h4 class="font-bold text-green-400 mb-1">Github</h4>
+                    <p class="text-xs text-gray-500">nyyanja</p>
+                </a>
+                
+                <a href="https://www.facebook.com/nyyanjamahavatra" target="_blank" class="glass-morphism p-6 rounded-3xl text-center card-hover group">
+                    <div class="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                        <i class="fab fa-facebook text-white text-2xl"></i>
+                    </div>
+                    <h4 class="font-bold text-blue-400 mb-1">Facebook</h4>
+                    <p class="text-xs text-gray-500">Ny Anja</p>
+                </a>
+
+                <a href="https://twitter.com/mon-profil" target="_blank" class="glass-morphism p-6 rounded-3xl text-center card-hover group">
+                    <div class="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-blue-400 to-blue-500 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                        <i class="fab fa-twitter text-white text-2xl"></i>
+                    </div>
+                    <h4 class="font-bold text-blue-400 mb-1">Twitter</h4>
+                    <p class="text-xs text-gray-500">nyyanja</p>
+                </a>
+                
+                
+                <a href="" class="glass-morphism p-6 rounded-3xl text-center card-hover group">
+                    <div class="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-green-500 to-teal-600 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-phone text-white text-2xl"></i>
+                    </div>
+                    <h4 class="font-bold text-green-400 mb-1">Téléphone</h4>
+                    <p class="text-xs text-gray-500">+261 32 84 901 40</p>
+                    <p class="text-xs text-gray-500">+261 38 07 496 09</p>
+                </a>
+            </div>
+            
+            <!-- Call to Action -->
+            <div class="glass-morphism p-8 md:p-12 rounded-3xl max-w-4xl mx-auto text-center animate-on-scroll">
+                <div class="flex justify-center mb-6">
+                    <div class="w-20 h-20 bg-gradient-to-br from-pink-500 to-purple-600 rounded-3xl flex items-center justify-center animate-glow">
+                        <i class="fas fa-heart text-white text-3xl"></i>
+                    </div>
+                </div>
+                <h3 class="text-2xl md:text-3xl font-bold mb-6 gradient-text">Créons Ensemble</h3>
+                <p class="text-gray-300 mb-8 text-lg leading-relaxed">
+                    Chaque projet est une nouvelle aventure créative. Que vous soyez une marque, 
+                    un particulier ou une organisation, j'ai hâte de donner vie à vos idées les plus audacieuses !
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <button onclick="window.location.href='mailto:contact@monportfolio.com'" 
+                            class="bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 px-8 py-4 rounded-full font-semibold transition-all duration-300 hover:scale-105 pink-glow">
+                        <i class="fas fa-paper-plane mr-2"></i>Discutons de votre projet
+                    </button>
+                    <button onclick="downloadPortfolio()" 
+                            class="border-2 border-cyan-400 text-cyan-400 hover:bg-cyan-400 hover:text-black px-8 py-4 rounded-full font-semibold transition-all duration-300 hover:scale-105 ice-glow">
+                        <i class="fas fa-download mr-2"></i>Télécharger mon CV
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 px-6 border-t border-gray-700/50 relative">
+        <div class="container mx-auto">
+            <div class="text-center">
+                <div class="flex justify-center items-center mb-6">
+                    <div class="w-12 h-12 bg-gradient-to-br from-pink-500 to-purple-600 rounded-2xl flex items-center justify-center mr-4">
+                        <i class="fas fa-camera text-white text-xl"></i>
+                    </div>
+                    <span class="text-2xl font-bold gradient-text">Mon Portfolio</span>
+                </div>
+                <p class="text-gray-400 mb-4">© 2024 Mon Portfolio. Créé avec passion et créativité.</p>
+                <p class="gradient-text font-medium text-lg">✨ Photographe • Designer • Passionnée d'Auto • Developpeur • Éco-responsable ✨</p>
+                <div class="mt-6 flex justify-center space-x-6">
+                    <a href="#" class="text-gray-500 hover:text-pink-400 transition-colors">
+                        <i class="fas fa-heart"></i>
+                    </a>
+                    <a href="#" class="text-gray-500 hover:text-purple-400 transition-colors">
+                        <i class="fas fa-camera"></i>
+                    </a>
+                    <a href="#" class="text-gray-500 hover:text-cyan-400 transition-colors">
+                        <i class="fas fa-palette"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/assests/js/script.js"></script>
+</body>
+</html>
